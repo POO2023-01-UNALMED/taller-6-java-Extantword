@@ -141,7 +141,6 @@ public class Vehiculo {
 
 	public static Pais paisMasVendedor(){
 		
-		//Bueno esto lo saqué de stackoverflow, ni idea de como funciona, pero funciona c:
 		
 		Map<Pais,Long> counts = paises.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
 		Pais s = counts.entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
