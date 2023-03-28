@@ -19,8 +19,7 @@ public class Vehiculo {
 	private static int automoviles = 0;
 	private static int camiones = 0;
 	private static int camionetas = 0;
-	private static ArrayList< Pais > paises = new ArrayList< Pais >(); 
-	private static ArrayList<Fabricante> fabricantes = new ArrayList<Fabricante>();
+	
 	
 	public Vehiculo(String placa, int puertas, int velocidadMaxima, String nombre, 
 			int precio, int peso, String traccion, Fabricante fabricante) {
@@ -44,8 +43,8 @@ public class Vehiculo {
 	    	camionetas++;
 	    }
 	    
-	    paises.add(fabricante.getPais());
-	    fabricantes.add(fabricante);
+	    Pais.paises.add(fabricante.getPais());
+	    Fabricante.fabricantes.add(fabricante);
 	    
 	}
 
@@ -139,26 +138,8 @@ public class Vehiculo {
 		
 	}
 
-	public static Pais paisMasVendedor(){
-		
-		
-		Map<Pais,Long> counts = paises.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
-		Pais s = counts.entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
-
-		return s;
 	
-		
-	}
 	
-	public static Fabricante fabricaMayorVentas() {
-		
-		Map<Fabricante,Long> counts = fabricantes.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));
-		Fabricante s = counts.entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
-
-		return s;
-	
-	}
-
 	
 
 }
